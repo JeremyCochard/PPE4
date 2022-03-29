@@ -16,10 +16,8 @@
 		}
 	}
 	
-	function getNumUtlisateur(){
+	function getNumUtlisateur($login){
 		$connexion=connexionPDO();
-		
-		$login=$_SESSION["login"];
 		
 		$sql = "SELECT numUtilisateur From utilisateur where login ='$login'";
 		$pdostatement = $connexion->query($sql);
@@ -29,7 +27,7 @@
 		return $strNum;
 	}
 	
-	function getReservation(){
+	function getReservation($numCli){
 		$connexion=connexionPDO();
 		
 		$numClient=$_SESSION["numClient"];
@@ -37,7 +35,6 @@
 		$req="SELECT * from reservation where numClient='$numClient'";
 		$pdostatement = $connexion->query($req);
 		$reservationClient = $pdostatement->fetch(PDO::FETCH_ASSOC);
-		$strReservationClient=implode("|", $reservationClient);
 		
 		return $strReservationClient;
 	}

@@ -1,27 +1,15 @@
 <?php
 include_once("gestionBase.php");
-//session_start();
+session_start();
 
 		try{
-			$connexion=connexionPDO();
 			
-			//$numClient=$_POST['numClient']="3";
 			$login=$_REQUEST['login'];
+			if(!empty($login)){
 				
-			if(!empty($numClient)){
-				
-				//$_SESSION["numClient"]=$numClient;
-				
-				$_SESSION["login"]=$login;
-				
-				$numCli=getNumUtlisateur();
-				$_SESSION["numCli"]=$numCli;
-				$reservationClient=getReservation()
-				
-				//$numReservationClient=getReservation();
-				
-				//$numReservationClient=$_SESSION["numCli"];
-				
+				$numCli=getNumUtlisateur($login);
+			
+				$reservationClient=getReservation($numCli);			
 				
 				if(!empty($reservationClient)){
 					echo($reservationClient);

@@ -8,7 +8,7 @@ session_start();
 		$nbEmplacement=$_REQUEST['nbEmplacement'];
 		$duréeJ=$_REQUEST['duréeJ'];
 		$quantite=$_REQUEST['quantite'];
-		if(!empty($nbEmplacement) && !empty($duréeJ) && !empty($quantite)){
+		if(!empty($nbEmplacement) && !empty($duréeJ) && !empty($quantite) && !empty($login)){
 		
 			$dateReservation=date('20y-m-d');
 		
@@ -17,8 +17,7 @@ session_start();
 			$strDuréeJ="+".$duréeJ." days";
 			$dateFinReservation=date('20y-m-d', strtotime($strDuréeJ));
 			
-			$_SESSION["login"]=$login;
-			$numUtilisateur=getNumUtlisateur();
+			$numUtilisateur=getNumUtlisateur($login);
 			
 			$etat="encours";
 			

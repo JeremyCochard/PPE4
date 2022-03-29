@@ -37,7 +37,7 @@ public class ConsultationReservation extends AppCompatActivity {
     private CookieHandler cookieManager;
     private StringRequest StringRequestsr;
     private RequestQueue requestQueue;
-    private String url = "http://192.168.1.42/zonestockage/login.php";
+    private String url = "http://192.168.1.42/zonestockage/affichageReservationUtilisateur.php";
     //private String url = "http://172.16.252.5/zonestockage/demandeReservation.php";
     public Request<?> stringRequest;
 

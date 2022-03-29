@@ -16,10 +16,8 @@
 		}
 	}
 	
-	function getNumUtlisateur(){
+	function getNumUtlisateur($login){
 		$connexion=connexionPDO();
-		
-		$login=$_SESSION["login"];
 		
 		$sql = "SELECT numUtilisateur From utilisateur where login ='$login'";
 		$pdostatement = $connexion->query($sql);
@@ -37,15 +35,14 @@
 		$req="SELECT * from reservation where numClient='$numClient'";
 		$pdostatement = $connexion->query($req);
 		$reservationClient = $pdostatement->fetch(PDO::FETCH_ASSOC);
-		$strReservationClient=implode("|", $reservationClient);
 		
 		return $strReservationClient;
 	}
 	
 	function suppressionReservation(){
-		$idReservation=$_SESSION["idReservation"];
-		
 		$connexion=connexionPDO();
+		
+		$idReservation=$_SESSION["idReservation"];
 		
 		$req="DELETE from reservation where id=$idReservation";
 		$pdostatement = $connexion->query($req);

@@ -4,20 +4,19 @@ session_start();
 		try{
 			$connexion=connexionPDO();
 			
-			$nbEmplacement=$_REQUEST['nbEmplacement'];
-			//$login=$_REQUEST['login'];
+			$login=$_REQUEST['login'];
 			$password=$_REQUEST['password'];
 				
-			if(!empty($nbEmplacement) && !empty($password)){
+			if(!empty($login) && !empty($password)){
 				
-				$req="SELECT count(*) as nb From utilisateur where login='$nbEmplacement' and password ='$password'";
+				$req="SELECT count(*) as nb From utilisateur where login='$login' and password ='$password'";
 
 				$prep=$connexion->prepare($req);
 				$prep->execute();
 				
-				$_SESSION["login"]=$nbEmplacement;
+				//$_SESSION["login"]=$login;
 				
-				$numCli=getNumUtlisateur();
+				$numCli=getNumUtlisateur($login);
 				$_SESSION["numCli"]=$numCli;
 		
 				$resultat = $prep->fetch();

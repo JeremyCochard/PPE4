@@ -17,7 +17,7 @@ session_start();
 			$strDuréeJ="+".$duréeJ." days";
 			$dateFinReservation=date('20y-m-d', strtotime($strDuréeJ));
 			
-			$numUtilisateur=getNumUtlisateur();
+			$numUtilisateur=getNumUtlisateur($login);
 			
 			$etat="encours";
 			

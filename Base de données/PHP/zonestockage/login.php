@@ -14,9 +14,7 @@ session_start();
 				$prep=$connexion->prepare($req);
 				$prep->execute();
 				
-				$_SESSION["login"]=$login;
-				
-				$numCli=getNumUtlisateur();
+				$numCli=getNumUtlisateur($login);
 				$_SESSION["numCli"]=$numCli;
 		
 				$resultat = $prep->fetch();
