@@ -1,0 +1,29 @@
+<?php
+include_once("gestionBase.php");
+session_start();
+
+		try{
+			$connexion=connexionPDO();
+			
+			$numClient=$_REQUEST['numClient'];
+				
+			if(!empty($numClient)){
+				
+				$_SESSION["numClient"]=$numClient;
+				
+				$reservationClient=getReservation();
+				
+				if(!empty($reservationClient)){
+					echo($reservationClient);
+				}else{
+					echo("Aucune résertion");
+				}
+			}else{
+				echo ("Erreur Recherche réservation !");
+			}
+		}catch(PDOExeption $e){
+			print "Erreur de connexion PDO";
+			die();
+		}		
+
+?>

@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">PPE4</string>
+    <string-array name="spinner_type">
+        <item>Client</item>
+        <item>Fournisseur</item>
+        <item>Administrateur</item>
+        <item>Dsi</item>
+        <item>Docker</item>
+    </string-array>
+
+    <string name="id">id</string>
+    <string name="dateReservation">dateReservation</string>
+    <string name="datePrevueStockage">datePrevueStockage</string>
+    <string name="quantite">quantite</string>
+    <string name="nbJoursDeStockagePrevu">nbJoursDeStockagePrevu</string>
+    <string name="etat">etat</string>
+
+</resources>
+

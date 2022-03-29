@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/pageAccueilConnexion">
+
+    <activity
+        android:id="@+id/pageAccueilConnexion"
+        android:name="fr.cours.ppe4.PageAccueilConnexion"
+        android:label="accueil_connexion"
+        tools:layout="@layout/accueil_connexion" />
+    <action
+        android:id="@+id/action_pageAccueilConnexion_to_pageConnexion"
+        app:destination="@id/pageConnexion" />
+
+    <activity
+        android:id="@+id/pageConnexion"
+        android:name="fr.cours.ppe4.PageConnexion"
+        android:label="connexion"
+        tools:layout="@layout/connexion" />
+    <action
+        android:id="@+id/pageConnexion_to_pageAccueilConnexion"
+        app:destination="@id/pageAccueilConnexion" />
+    <action
+        android:id="@+id/pageConnexion_to_pageUtilisateur"
+        app:destination="@+id/pageUtilisateur"/>
+
+</navigation>
