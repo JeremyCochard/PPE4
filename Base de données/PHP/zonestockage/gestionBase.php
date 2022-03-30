@@ -24,19 +24,25 @@
 		$num = $pdostatement->fetch(PDO::FETCH_ASSOC);
 		$strNum=implode($num);
 		
+		
 		return $strNum;
 	}
 	
 	function getReservation($numCli){
 		$connexion=connexionPDO();
+		$tableauReservation = array();
+	
+		$req="SELECT * from reservation where numClient='$numCli'";		
+		foreach  ($connexion->query($req) as $row) {
+		$tableauReservation[] = $row;
+		}
+ 
+		//var_dump($tableauReservation[1]['id']);
+		$tableauReservationJson = json_encode($tableauReservation);
 		
-		$numClient=$_SESSION["numClient"];
 		
-		$req="SELECT * from reservation where numClient='$numClient'";
-		$pdostatement = $connexion->query($req);
-		$reservationClient = $pdostatement->fetch(PDO::FETCH_ASSOC);
 		
-		return $strReservationClient;
+		return $tableauReservationJson;
 	}
 	
 	function suppressionReservation(){
