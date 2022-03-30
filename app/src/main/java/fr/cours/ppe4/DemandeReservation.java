@@ -24,25 +24,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DemandeReservation extends AppCompatActivity {
-
     private TextView nbEmplacement, duréeJ, quantite, connexion_login;
-    private Button validationReservation;
+    private Button validationReservation, button_pageAccueilConnexion, button_demande_reservation, button_historique_reservation;
+
+    private Intent demandeReservation, historiqueReservation, PageAccueilConnexion;
 
     private CookieManager CookieManagercookieManager;
     private CookieHandler cookieManager;
     private StringRequest StringRequestsr;
     private RequestQueue requestQueue;
+
+    private String _nbEmplacement, _duréeJ, _quantite, _login;
     private String url = "http://192.168.1.42/zonestockage/demandeReservation.php";
     //private String url = "http://172.16.252.5/zonestockage/login.php";
-    private String _nbEmplacement, _duréeJ, _quantite, _login;
-    private Button button_pageAccueilConnexion;
-    private Button button_demande_reservation;
-    private Button button_historique_reservation;
-    private Intent demandeReservation;
-    private Intent historiqueReservation;
-    private Intent PageAccueilConnexion;
-
-    private String _connexion_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

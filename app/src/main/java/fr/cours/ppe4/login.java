@@ -35,9 +35,10 @@ public class login extends AppCompatActivity {
     private CookieHandler cookieManager;
     private StringRequest StringRequestsr;
     private RequestQueue requestQueue;
+
+    private String _password, _login;
     private String url = "http://192.168.1.42/zonestockage/login.php";
     //private String url = "http://172.16.252.5/zonestockage/login.php";
-    private String _password, _login;
 
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -59,8 +60,6 @@ public class login extends AppCompatActivity {
             });
 
         }
-
-
 
     protected void authentification(android.view.View view) {
 
@@ -127,12 +126,3 @@ public class login extends AppCompatActivity {
         requestQueue.add(StringRequestsr);
     }
 }
-/*String _nbEmplacement = nbEmplacement.getText().toString();
-                String _dateDebStockage = dateDebStockage.getText().toString();
-                String _duréeJ = duréeJ.getText().toString();
-
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("nbEmplacement", _nbEmplacement);
-                params.put("_dateDebStockage", _dateDebStockage);
-                params.put("duréeJ", _duréeJ);
-                return params;*/
