@@ -20,21 +20,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="id"
+                android:gravity="center"
+                android:text="********** id **********"
                 android:textStyle="bold|italic" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+
                 android:text="dateReservation"
                 android:textStyle="bold|italic" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="4dp"
                 android:text="datePrevueStockage"
                 android:textStyle="bold|italic" />
 
@@ -49,21 +49,21 @@
                 android:id="@+id/id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:gravity="center"
                 android:text="a" />
 
             <TextView
                 android:id="@+id/dateReservation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:gravity="center"
                 android:text="b" />
 
             <TextView
                 android:id="@+id/datePrevueStockage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:gravity="center"
                 android:text="c" />
 
         </TableRow>
@@ -75,21 +75,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:text="nbJoursDeStockagePrevu"
                 android:textStyle="bold|italic" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:gravity="center"
                 android:text="quantite"
                 android:textStyle="bold|italic" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:gravity="center"
                 android:text="etat"
                 android:textStyle="bold|italic" />
 
@@ -104,31 +103,48 @@
                 android:id="@+id/nbJoursDeStockagePrevu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:gravity="center"
                 android:text="d" />
 
             <TextView
                 android:id="@+id/quantite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:gravity="center"
                 android:text="e" />
 
             <TextView
                 android:id="@+id/etat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:gravity="center"
                 android:text="f" />
 
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/buttom_modification_reservation"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:background="#3F51B5"
+                android:textSize="010dp"
+                android:text="Modification"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="" />
+            <Button
+                android:id="@+id/buttom_suppression_reservation"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:background="#ff0000"
+                android:textSize="010dp"
+                android:text="Suppresion"/>
         </TableRow>
 
 
     </TableLayout>
 
+
 </LinearLayout>
-
-
-
-
-

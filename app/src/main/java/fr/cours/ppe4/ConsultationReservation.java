@@ -42,10 +42,11 @@ public class ConsultationReservation extends AppCompatActivity {
     private LinearLayout zone_inflate_consultation;
     private LayoutInflater layoutInflater;
 
-    private String _id, _dateReservation, _datePrevueStockage, _nbJoursDeStockagePrevu, _quantite, _etat, _login;
+    //private String _id, _dateReservation, _datePrevueStockage, _nbJoursDeStockagePrevu, _quantite, _etat, _login;
+    private String _login;
     private int _lenghtReq;
-    private String url = "http://192.168.1.42/zonestockage/affichageReservationUtilisateur.php";
-    //private String url = "http://172.16.252.5/zonestockage/demandeReservation.php";
+    //private String url = "http://192.168.1.42/zonestockage/affichageReservationUtilisateur.php";
+    private String url = "http://172.16.252.5/zonestockage/affichageReservationUtilisateur.php";
 
     private TextView textView8;
     @Override
@@ -58,12 +59,7 @@ public class ConsultationReservation extends AppCompatActivity {
         this.button_historique_reservation=(Button)findViewById(R.id.buttom_historique_reservation);
         this.buttonConsultation=(Button)findViewById(R.id.buttonConsultation);
 
-        this.id=(TextView)findViewById(R.id.id);
-        this.dateReservation=(TextView)findViewById(R.id.dateReservation);
-        this.datePrevueStockage=(TextView)findViewById(R.id.datePrevueStockage);
-        this.nbJoursDeStockagePrevu=(TextView)findViewById(R.id.nbJoursDeStockagePrevu);
-        this.quantite=(TextView)findViewById(R.id.quantite);
-        this.etat=(TextView)findViewById(R.id.etat);
+
 
         CookieManagercookieManager = new CookieManager();
         CookieHandler.setDefault(cookieManager);
@@ -98,83 +94,69 @@ public class ConsultationReservation extends AppCompatActivity {
         buttonConsultation.setOnClickListener(new android.view.View.OnClickListener() {
             @Override
             public void onClick(android.view.View view) {
-                //consultationReservation(view);
-                etat.setText("ppp");
-            }
+                consultationReservation(view);
+                }
         });
 
         this.zone_inflate_consultation=(LinearLayout) findViewById(R.id.zone_inflate_consultation);
-
         layoutInflater=(LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
 
-       /* _id="a";
-        _dateReservation="a";
-        _datePrevueStockage="a";
-        _nbJoursDeStockagePrevu="a";
-        _quantite="a";
-        _etat="a";
-
-        id.setText(_id);
-        dateReservation.setText(_dateReservation);
-        datePrevueStockage.setText(_datePrevueStockage);
-        nbJoursDeStockagePrevu.setText(_nbJoursDeStockagePrevu);
-        quantite.setText(_quantite);*/
-
-
-        for(int y =0 ; y < 3; y++) {
-
-            View viewInflater = layoutInflater.inflate(R.layout.consultation_inflater, null, false);
-            zone_inflate_consultation.addView(viewInflater);
-
-        }
     }
 
     protected void consultationReservation(android.view.View view) {
         _login = "jcoc";
 
+
         StringRequestsr = new StringRequest(Request.Method.POST, url,
 
                 new Response.Listener<String>() {
+                    TextView id, dateReservation, datePrevueStockage, nbJoursDeStockagePrevu, quantite, etat;
+                    String _id, _dateReservation, _datePrevueStockage, _nbJoursDeStockagePrevu, _quantite, _etat;
+
 
                     @Override
                     public void onResponse(String response) {
-                        /*JSONObject connected = null;
+                        JSONArray collectionReservation = null;
+                        Log.v("**********", String.valueOf(response));
+
                         try {
-                            connected = new JSONObject(response);
-                            Log.v("**********", String.valueOf(connected));
 
-                                _id = connected.getString("id");
-                                _dateReservation = connected.getString("dateReservation");
-                                _datePrevueStockage = connected.getString("datePrevueStockage");
-                                _nbJoursDeStockagePrevu = connected.getString("nbJoursDeStockagePrevu");
-                                _quantite = connected.getString("quantite");
-                                _etat = connected.getString("etat");
+                            collectionReservation = new JSONArray(response);
 
-                                _id="a";
-                                _dateReservation="a";
-                                _datePrevueStockage="a";
-                                _nbJoursDeStockagePrevu="a";
-                                _quantite="a";
-                                _etat="a";
+                                for(int y =0 ; y <= collectionReservation.length()-1; y++) {
 
-                                for(int y =0 ; y <= connected.length(); y++) {
+                                    View viewInflater = layoutInflater.inflate(R.layout.consultation_inflater, null, false);
+                                    zone_inflate_consultation.addView(viewInflater);
+
+                                    JSONObject jsonObject = collectionReservation.getJSONObject(y);
+
+                                    _id=jsonObject.opt("id").toString();
+                                    _dateReservation=jsonObject.opt("dateReservation").toString();
+                                    _datePrevueStockage=jsonObject.opt("datePrevueStockage").toString();
+                                    _nbJoursDeStockagePrevu=jsonObject.opt("nbJoursDeStockagePrevu").toString();
+                                    _quantite=jsonObject.opt("quantite").toString();
+                                    _etat=jsonObject.opt("etat").toString();
+
+                                    this.id=(TextView)viewInflater.findViewById(R.id.id);
+                                    this.dateReservation=(TextView)viewInflater.findViewById(R.id.dateReservation);
+                                    this.datePrevueStockage=(TextView)viewInflater.findViewById(R.id.datePrevueStockage);
+                                    this.nbJoursDeStockagePrevu=(TextView)viewInflater.findViewById(R.id.nbJoursDeStockagePrevu);
+                                    this.quantite=(TextView)viewInflater.findViewById(R.id.quantite);
+                                    this.etat=(TextView)viewInflater.findViewById(R.id.etat);
+
                                     id.setText(_id);
                                     dateReservation.setText(_dateReservation);
                                     datePrevueStockage.setText(_datePrevueStockage);
                                     nbJoursDeStockagePrevu.setText(_nbJoursDeStockagePrevu);
                                     quantite.setText(_quantite);
                                     etat.setText(_etat);
-
-                                    View viewInflater = layoutInflater.inflate(R.layout.consultation_inflater, null, false);
-                                    zone_inflate_consultation.addView(viewInflater);
-
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                             String err = e.getMessage();
                             Log.e("MainActivity", "JsonException" + err);
-                        }*/
+                        }
                     }
                 },
                 new Response.ErrorListener() {
@@ -186,7 +168,8 @@ public class ConsultationReservation extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("login", _login);
+                //params.put("login", _login);
+                params.put("login", "jcoc");
                 return params;
             }
             @Override

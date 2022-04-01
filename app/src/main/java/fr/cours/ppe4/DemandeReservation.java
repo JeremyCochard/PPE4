@@ -35,8 +35,8 @@ public class DemandeReservation extends AppCompatActivity {
     private RequestQueue requestQueue;
 
     private String _nbEmplacement, _duréeJ, _quantite, _login;
-    private String url = "http://192.168.1.42/zonestockage/demandeReservation.php";
-    //private String url = "http://172.16.252.5/zonestockage/login.php";
+    //private String url = "http://192.168.1.42/zonestockage/demandeReservation.php";
+    private String url = "http://172.16.252.5/zonestockage/demandeReservation.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

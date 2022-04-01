@@ -37,8 +37,8 @@ public class login extends AppCompatActivity {
     private RequestQueue requestQueue;
 
     private String _password, _login;
-    private String url = "http://192.168.1.42/zonestockage/login.php";
-    //private String url = "http://172.16.252.5/zonestockage/login.php";
+    //private String url = "http://192.168.1.42/zonestockage/login.php";
+    private String url = "http://172.16.252.5/zonestockage/login.php";
 
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
