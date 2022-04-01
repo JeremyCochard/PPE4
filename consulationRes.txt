@@ -1,0 +1,41 @@
+<TextView
+        android:id="@+id/id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="a" />
+
+    <TextView
+        android:id="@+id/dateReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="b" />
+
+    <TextView
+        android:id="@+id/datePrevueStockage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="c" />
+
+    <TextView
+        android:id="@+id/nbJoursDeStockagePrevu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="d" />
+
+    <TextView
+        android:id="@+id/quantite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="e" />
+
+    <TextView
+        android:id="@+id/etat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="f" />
