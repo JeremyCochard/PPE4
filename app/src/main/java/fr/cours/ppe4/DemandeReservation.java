@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,10 +26,11 @@ import java.net.CookieManager;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DemandeReservation extends AppCompatActivity {
+public class DemandeReservation extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private TextView nbEmplacement, duréeJ, quantite, connexion_login;
+    private Spinner spinner;
     private Button validationReservation, button_pageAccueilConnexion, button_demande_reservation, button_historique_reservation;
-
+private String _urgent;
     private Intent demandeReservation, historiqueReservation, PageAccueilConnexion;
 
     private CookieManager CookieManagercookieManager;
@@ -51,6 +55,18 @@ public class DemandeReservation extends AppCompatActivity {
         this.validationReservation = (Button) findViewById(R.id.validationReservation);
         this.button_demande_reservation = (Button) findViewById(R.id.buttom_demande_reservation);
         this.button_historique_reservation = (Button) findViewById(R.id.buttom_historique_reservation);
+
+        this.spinner=(Spinner)findViewById(R.id.spinner_type);
+        Spinner spinner = new Spinner(this);
+        ArrayAdapter<CharSequence> spinnerArrayAdapter = ArrayAdapter.createFromResource(this,
+                R.array.spinner_urgence,
+                android.R.layout.simple_spinner_item);
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        spinner.setAdapter(spinnerArrayAdapter);
+
+        spinner.setOnItemClickListener(this);
+
+        _urgent = spinner.getSelectedItem().toString();
 
 
         validationReservation.setOnClickListener(new android.view.View.OnClickListener() {
@@ -135,6 +151,7 @@ public class DemandeReservation extends AppCompatActivity {
                     params.put("nbEmplacement", _nbEmplacement);
                     params.put("duréeJ", _duréeJ);
                     params.put("quantite", _quantite);
+                    //params.put("urgent", _urgent);
                     return params;
                 }
 
@@ -148,4 +165,9 @@ public class DemandeReservation extends AppCompatActivity {
             };
             requestQueue.add(StringRequestsr);
         }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        String spi=adapterView.getItemAtPosition(i).toString();
     }
+}

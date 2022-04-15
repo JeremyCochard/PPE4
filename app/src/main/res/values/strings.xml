@@ -1,11 +1,9 @@
 <resources>
     <string name="app_name">PPE4</string>
-    <string-array name="spinner_type">
-        <item>Client</item>
-        <item>Fournisseur</item>
-        <item>Administrateur</item>
-        <item>Dsi</item>
-        <item>Docker</item>
+    <string-array name="spinner_urgence">
+        <item>faible</item>
+        <item>normal</item>
+        <item>urgent</item>
     </string-array>
 
     <string name="id">id</string>

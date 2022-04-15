@@ -13,9 +13,13 @@ public class MenuUtilisateur extends AppCompatActivity {
     private Button button_demande_reservation;
     private Button button_historique_reservation;
 
+    private Button button_Decla;
+
     private Intent demandeReservation;
     private Intent historiqueReservation;
     private Intent PageAccueilConnexion;
+
+    private Intent declarationSinistre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +29,8 @@ public class MenuUtilisateur extends AppCompatActivity {
         this.button_pageAccueilConnexion=(Button) findViewById(R.id.button_page_acceuil);
         this.button_demande_reservation=(Button)findViewById(R.id.buttom_demande_reservation);
         this.button_historique_reservation=(Button)findViewById(R.id.buttom_historique_reservation);
+
+        this.button_Decla=(Button)findViewById(R.id.button_Decla);
 
 
         button_pageAccueilConnexion.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +53,14 @@ public class MenuUtilisateur extends AppCompatActivity {
             public void onClick(View view) {
                 historiqueReservation = new Intent(MenuUtilisateur.this, ConsultationReservation.class);
                 startActivity(historiqueReservation);
+            }
+        });
+
+        button_Decla.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                declarationSinistre = new Intent(MenuUtilisateur.this, DeclarationSinistre.class);
+                startActivity(declarationSinistre);
             }
         });
 

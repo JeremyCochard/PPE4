@@ -27,6 +27,7 @@
         <activity android:name=".ConsultationReservation"></activity>
         <activity android:name=".DemandeReservation"></activity>
         <activity android:name=".login"></activity>
+        <activity android:name=".DeclarationSinistre"></activity>
     </application>
 
 </manifest>
